@@ -139,4 +139,62 @@ Trace is a client side interface for distributed tracing e.g dapper, zipkin, app
 request may fan out to 20-30 services. Failure may be non deterministic and difficult to track. Distributed tracing is a 
 way of tracking the lifetime of a request. The interface utilises client and server wrappers to simplify using tracing.
 
+## Usage
 
+```shell
+$ platform
+NAME:
+   platform - A microservices platform
+
+USAGE:
+   platform [global options] command [command options] [arguments...]
+   
+VERSION:
+   latest
+   
+COMMANDS:
+   auth		Auth commands
+   config	Config commands
+   discovery	Discovery commands
+   db		DB commands
+   event	Event commands
+   monitor	Monitor commands
+   router	Router commands
+   trace	Trace commands
+   help, h	Shows a list of commands or help for one command
+   
+GLOBAL OPTIONS:
+   --server_name 								Name of the server. go.micro.srv.example [$MICRO_SERVER_NAME]
+   --server_version 								Version of the server. 1.1.0 [$MICRO_SERVER_VERSION]
+   --server_id 									Id of the server. Auto-generated if not specified [$MICRO_SERVER_ID]
+   --server_address 								Bind address for the server. 127.0.0.1:8080 [$MICRO_SERVER_ADDRESS]
+   --server_advertise 								Used instead of the server_address when registering with discovery. 127.0.0.1:8080 [$MICRO_SERVER_ADVERTISE]
+   --server_metadata [--server_metadata option --server_metadata option]	A list of key-value pairs defining metadata. version=1.0.0 [$MICRO_SERVER_METADATA]
+   --broker 									Broker for pub/sub. http, nats, rabbitmq [$MICRO_BROKER]
+   --broker_address 								Comma-separated list of broker addresses [$MICRO_BROKER_ADDRESS]
+   --registry 									Registry for discovery. memory, consul, etcd, kubernetes [$MICRO_REGISTRY]
+   --registry_address 								Comma-separated list of registry addresses [$MICRO_REGISTRY_ADDRESS]
+   --selector 									Selector used to pick nodes for querying. random, roundrobin, blacklist [$MICRO_SELECTOR]
+   --transport 									Transport mechanism used; http, rabbitmq, nats [$MICRO_TRANSPORT]
+   --transport_address 								Comma-separated list of transport addresses [$MICRO_TRANSPORT_ADDRESS]
+   --logtostderr								log to standard error instead of files
+   --alsologtostderr								log to standard error as well as files
+   --log_dir 									log files will be written to this directory instead of the default temporary directory
+   --stderrthreshold 								logs at or above this threshold go to stderr
+   -v 										log level for V logs
+   --vmodule 									comma-separated list of pattern=N settings for file-filtered logging
+   --log_backtrace_at 								when logging hits line file:N, emit a stack trace
+   --database_url 								The database URL e.g root@tcp(127.0.0.1:3306)/database [$MICRO_DATABASE_URL]
+   --help, -h									show help
+```
+
+### Running a platform service
+
+The platform consists of a number of services. They can be run in the following way. For example config srv.
+
+```shell
+$ platform --registry_address=192.168.99.100 --database_url="root@tcp(127.0.0.1:3306)/config" --logtostderr config srv
+I0214 01:07:25.121366   52660 rpc_server.go:314] Listening on [::]:61224
+I0214 01:07:25.126317   52660 http_broker.go:220] Broker Listening on [::]:61225
+I0214 01:07:25.126477   52660 rpc_server.go:222] Registering node: go.micro.srv.config-4ef6844a-d2b7-11e5-9d6e-68a86d0d36b6
+```
