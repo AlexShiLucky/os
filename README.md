@@ -211,3 +211,10 @@ I0214 01:07:25.121366   52660 rpc_server.go:314] Listening on [::]:61224
 I0214 01:07:25.126317   52660 http_broker.go:220] Broker Listening on [::]:61225
 I0214 01:07:25.126477   52660 rpc_server.go:222] Registering node: go.micro.srv.config-4ef6844a-d2b7-11e5-9d6e-68a86d0d36b6
 ```
+
+### Roadmap
+
+- [ ] Micro {API, Web, CLI, SideCar} added with platform enhancements e.g auth, routing, etc
+- [ ] Web services for each platform service
+- [ ] CLI shortcuts for the platform
+- [ ] Provisioning and dependency management
