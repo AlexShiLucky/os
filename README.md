@@ -21,6 +21,19 @@ Repo		|	Description
 [router-srv](https://github.com/micro/router-srv)	|	Global service load balancing
 [trace-srv](https://github.com/micro/trace-srv)	|	Distributed tracing
 
+## Additional Services
+
+There are a few other services that we support as part of the go-platform but haven't written backend services for. 
+These are still vital for a microservice platform and we may build services for them later but there are very 
+strong systems in the OSS world for them.
+
+Feature		|	Description
+-----		|	--------
+**KV**		|	Distributed Key Value
+**Sync**	|	Distributed Synchronization
+**Log**		|	Centralised logging
+**Metrics**	|	Metrics aggregation and graphing
+
 
 ## Go-platform Features
 
