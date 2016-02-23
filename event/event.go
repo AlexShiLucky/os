@@ -1,6 +1,8 @@
 package event
 
 import (
+	"time"
+
 	log "github.com/golang/glog"
 	"github.com/micro/cli"
 	"github.com/micro/event-srv/db"
@@ -15,10 +17,16 @@ import (
 func srv(ctx *cli.Context) {
 	service := micro.NewService(
 		micro.Name("go.micro.srv.event"),
+		micro.RegisterTTL(
+			time.Duration(ctx.GlobalInt("register_ttl"))*time.Second,
+		),
+		micro.RegisterInterval(
+			time.Duration(ctx.GlobalInt("register_interval"))*time.Second,
+		),
 	)
 
-	if len(ctx.String("database_url")) > 0 {
-		mysql.Url = ctx.String("database_url")
+	if len(ctx.GlobalString("database_url")) > 0 {
+		mysql.Url = ctx.GlobalString("database_url")
 	}
 
 	proto.RegisterEventHandler(service.Server(), new(handler.Event))

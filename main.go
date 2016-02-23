@@ -25,6 +25,16 @@ func setup(app *ccli.App) {
 			EnvVar: "MICRO_DATABASE_URL",
 			Usage:  "The database URL e.g root@tcp(127.0.0.1:3306)/database",
 		},
+		ccli.IntFlag{
+			Name:   "register_ttl",
+			EnvVar: "MICRO_REGISTER_TTL",
+			Usage:  "Register TTL in seconds",
+		},
+		ccli.IntFlag{
+			Name:   "register_interval",
+			EnvVar: "MICRO_REGISTER_INTERVAL",
+			Usage:  "Register interval in seconds",
+		},
 	)
 }
 

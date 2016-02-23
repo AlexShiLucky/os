@@ -1,6 +1,8 @@
 package db
 
 import (
+	"time"
+
 	log "github.com/golang/glog"
 	"github.com/micro/cli"
 	"github.com/micro/go-micro"
@@ -15,6 +17,12 @@ import (
 func srv(ctx *cli.Context) {
 	service := micro.NewService(
 		micro.Name("go.micro.srv.db"),
+		micro.RegisterTTL(
+			time.Duration(ctx.GlobalInt("register_ttl"))*time.Second,
+		),
+		micro.RegisterInterval(
+			time.Duration(ctx.GlobalInt("register_interval"))*time.Second,
+		),
 	)
 
 	if len(ctx.String("database_service_namespace")) > 0 {

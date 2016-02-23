@@ -1,6 +1,8 @@
 package trace
 
 import (
+	"time"
+
 	log "github.com/golang/glog"
 	"github.com/micro/cli"
 	micro "github.com/micro/go-micro"
@@ -20,10 +22,16 @@ import (
 func srv(ctx *cli.Context) {
 	service := micro.NewService(
 		micro.Name("go.micro.srv.trace"),
+		micro.RegisterTTL(
+			time.Duration(ctx.GlobalInt("register_ttl"))*time.Second,
+		),
+		micro.RegisterInterval(
+			time.Duration(ctx.GlobalInt("register_interval"))*time.Second,
+		),
 	)
 
-	if len(ctx.String("database_url")) > 0 {
-		mysql.Url = ctx.String("database_url")
+	if len(ctx.GlobalString("database_url")) > 0 {
+		mysql.Url = ctx.GlobalString("database_url")
 	}
 
 	proto.RegisterTraceHandler(service.Server(), new(handler.Trace))

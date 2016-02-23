@@ -1,12 +1,13 @@
 package discovery
 
 import (
+	"time"
+
 	log "github.com/golang/glog"
 	"github.com/micro/cli"
-	"github.com/micro/go-micro"
-
 	"github.com/micro/discovery-srv/discovery"
 	"github.com/micro/discovery-srv/handler"
+	"github.com/micro/go-micro"
 
 	proto "github.com/micro/discovery-srv/proto/discovery"
 	proto2 "github.com/micro/discovery-srv/proto/registry"
@@ -15,6 +16,12 @@ import (
 func srv(ctx *cli.Context) {
 	service := micro.NewService(
 		micro.Name("go.micro.srv.discovery"),
+		micro.RegisterTTL(
+			time.Duration(ctx.GlobalInt("register_ttl"))*time.Second,
+		),
+		micro.RegisterInterval(
+			time.Duration(ctx.GlobalInt("register_interval"))*time.Second,
+		),
 		micro.BeforeStart(func() error {
 			discovery.Run()
 			return nil
