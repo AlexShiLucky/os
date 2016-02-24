@@ -35,6 +35,11 @@ func setup(app *ccli.App) {
 			EnvVar: "MICRO_REGISTER_INTERVAL",
 			Usage:  "Register interval in seconds",
 		},
+		ccli.StringFlag{
+			Name:   "html_dir",
+			EnvVar: "MICRO_HTML_DIR",
+			Usage:  "The html directory for a web app",
+		},
 	)
 }
 

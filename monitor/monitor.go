@@ -6,9 +6,14 @@ import (
 	log "github.com/golang/glog"
 	"github.com/micro/cli"
 	"github.com/micro/go-micro"
+	"github.com/micro/go-micro/cmd"
 	"github.com/micro/monitor-srv/handler"
 	"github.com/micro/monitor-srv/monitor"
+
+	gweb "github.com/micro/go-web"
 	proto "github.com/micro/monitor-srv/proto/monitor"
+	whandler "github.com/micro/monitor-web/handler"
+	"github.com/micro/platform/internal/helper"
 )
 
 func srv(ctx *cli.Context) {
@@ -57,12 +62,42 @@ func srv(ctx *cli.Context) {
 	}
 }
 
+func web(ctx *cli.Context) {
+	opts := []gweb.Option{
+		gweb.Name("go.micro.web.monitor"),
+		gweb.Handler(whandler.Router()),
+	}
+
+	opts = append(opts, helper.WebOpts(ctx)...)
+
+	templateDir := "monitor/templates"
+	if dir := ctx.GlobalString("html_dir"); len(dir) > 0 {
+		templateDir = dir
+	}
+
+	whandler.Init(
+		templateDir,
+		proto.NewMonitorClient("go.micro.srv.monitor", *cmd.DefaultOptions().Client),
+	)
+
+	service := gweb.NewService(opts...)
+
+	if err := service.Run(); err != nil {
+		log.Fatal(err)
+	}
+}
+
 func monitorCommands() []cli.Command {
 	return []cli.Command{
 		{
 			Name:   "srv",
 			Usage:  "Run the monitor server",
 			Action: srv,
+		},
+		{
+			Name:   "web",
+			Usage:  "Run the monitor web app",
+			Action: web,
 		},
 	}
 }

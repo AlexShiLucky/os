@@ -6,6 +6,7 @@ import (
 	log "github.com/golang/glog"
 	"github.com/micro/cli"
 	micro "github.com/micro/go-micro"
+	"github.com/micro/go-micro/cmd"
 
 	// trace
 	"github.com/micro/trace-srv/handler"
@@ -14,6 +15,10 @@ import (
 	// db
 	"github.com/micro/trace-srv/db"
 	"github.com/micro/trace-srv/db/mysql"
+
+	gweb "github.com/micro/go-web"
+	"github.com/micro/platform/internal/helper"
+	whandler "github.com/micro/trace-web/handler"
 
 	// proto
 	proto "github.com/micro/trace-srv/proto/trace"
@@ -49,12 +54,42 @@ func srv(ctx *cli.Context) {
 	}
 }
 
+func web(ctx *cli.Context) {
+	opts := []gweb.Option{
+		gweb.Name("go.micro.web.trace"),
+		gweb.Handler(whandler.Router()),
+	}
+
+	opts = append(opts, helper.WebOpts(ctx)...)
+
+	templateDir := "trace/templates"
+	if dir := ctx.GlobalString("html_dir"); len(dir) > 0 {
+		templateDir = dir
+	}
+
+	whandler.Init(
+		templateDir,
+		proto.NewTraceClient("go.micro.srv.trace", *cmd.DefaultOptions().Client),
+	)
+
+	service := gweb.NewService(opts...)
+
+	if err := service.Run(); err != nil {
+		log.Fatal(err)
+	}
+}
+
 func traceCommands() []cli.Command {
 	return []cli.Command{
 		{
 			Name:   "srv",
 			Usage:  "Run the trace server",
 			Action: srv,
+		},
+		{
+			Name:   "web",
+			Usage:  "Run the trace web app",
+			Action: web,
 		},
 	}
 }

@@ -10,8 +10,12 @@ import (
 	"github.com/micro/event-srv/event"
 	"github.com/micro/event-srv/handler"
 	proto "github.com/micro/event-srv/proto/event"
+	whandler "github.com/micro/event-web/handler"
 	"github.com/micro/go-micro"
+	"github.com/micro/go-micro/cmd"
 	"github.com/micro/go-micro/server"
+	gweb "github.com/micro/go-web"
+	"github.com/micro/platform/internal/helper"
 )
 
 func srv(ctx *cli.Context) {
@@ -56,12 +60,42 @@ func srv(ctx *cli.Context) {
 	}
 }
 
+func web(ctx *cli.Context) {
+	opts := []gweb.Option{
+		gweb.Name("go.micro.web.event"),
+		gweb.Handler(whandler.Router()),
+	}
+
+	opts = append(opts, helper.WebOpts(ctx)...)
+
+	templateDir := "event/templates"
+	if dir := ctx.GlobalString("html_dir"); len(dir) > 0 {
+		templateDir = dir
+	}
+
+	whandler.Init(
+		templateDir,
+		proto.NewEventClient("go.micro.srv.event", *cmd.DefaultOptions().Client),
+	)
+
+	service := gweb.NewService(opts...)
+
+	if err := service.Run(); err != nil {
+		log.Fatal(err)
+	}
+}
+
 func eventCommands() []cli.Command {
 	return []cli.Command{
 		{
 			Name:   "srv",
 			Usage:  "Run the event server",
 			Action: srv,
+		},
+		{
+			Name:   "web",
+			Usage:  "Run the event web app",
+			Action: web,
 		},
 	}
 }
