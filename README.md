@@ -21,6 +21,15 @@ Repo		|	Description
 [router-srv](https://github.com/micro/router-srv)	|	Global service load balancing
 [trace-srv](https://github.com/micro/trace-srv)	|	Distributed tracing
 
+## Platform Web Dashboards
+
+Repo		|	Description
+------------	|	-------------
+[discovery-web](https://github.com/micro/discovery-web)	|	Service discovery dashboard
+[monitor-web](https://github.com/micro/monitor-web)	|	Monitoring dashboard
+[trace-web](https://github.com/micro/trace-web)	|	Distributed tracing dashboard
+[event-web](https://github.com/micro/event-web)	|	Event summarisation dashboard
+
 ## Additional Services
 
 There are a few other services that we support as part of the go-platform but haven't written backend services for. 
@@ -210,6 +219,15 @@ $ platform --registry_address=192.168.99.100 --database_url="root@tcp(127.0.0.1:
 I0214 01:07:25.121366   52660 rpc_server.go:314] Listening on [::]:61224
 I0214 01:07:25.126317   52660 http_broker.go:220] Broker Listening on [::]:61225
 I0214 01:07:25.126477   52660 rpc_server.go:222] Registering node: go.micro.srv.config-4ef6844a-d2b7-11e5-9d6e-68a86d0d36b6
+```
+
+### Running a platform web service
+
+The platform web services are a visual frontend for the service backends. They can be run in the following way.
+
+```shell
+$ platform --registry_address=192.168.99.100 --html_dir=/path/to/trace-web/templates trace web
+Listening on [::]:60576
 ```
 
 ### Roadmap
