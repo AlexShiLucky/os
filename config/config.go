@@ -6,9 +6,14 @@ import (
 	log "github.com/golang/glog"
 	"github.com/micro/cli"
 	"github.com/micro/go-micro"
+	"github.com/micro/go-micro/cmd"
 
 	"github.com/micro/config-srv/config"
 	"github.com/micro/config-srv/handler"
+
+	whandler "github.com/micro/config-web/handler"
+	gweb "github.com/micro/go-web"
+	"github.com/micro/platform/internal/helper"
 
 	// db
 	"github.com/micro/config-srv/db"
@@ -49,12 +54,42 @@ func srv(ctx *cli.Context) {
 	}
 }
 
+func web(ctx *cli.Context) {
+	opts := []gweb.Option{
+		gweb.Name("go.micro.web.config"),
+		gweb.Handler(whandler.Router()),
+	}
+
+	opts = append(opts, helper.WebOpts(ctx)...)
+
+	templateDir := "config/templates"
+	if dir := ctx.GlobalString("html_dir"); len(dir) > 0 {
+		templateDir = dir
+	}
+
+	whandler.Init(
+		templateDir,
+		proto.NewConfigClient("go.micro.srv.config", *cmd.DefaultOptions().Client),
+	)
+
+	service := gweb.NewService(opts...)
+
+	if err := service.Run(); err != nil {
+		log.Fatal(err)
+	}
+}
+
 func configCommands() []cli.Command {
 	return []cli.Command{
 		{
 			Name:   "srv",
 			Usage:  "Run the config server",
 			Action: srv,
+		},
+		{
+			Name:   "web",
+			Usage:  "Run the config web app",
+			Action: web,
 		},
 	}
 }
