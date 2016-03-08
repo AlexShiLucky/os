@@ -5,6 +5,7 @@ ADD discovery/templates /discovery/templates
 ADD config/templates /config/templates
 ADD monitor/templates /monitor/templates
 ADD event/templates /event/templates
+ADD router/templates /router/templates
 ADD trace/templates /trace/templates
 # binary
 ADD platform /platform

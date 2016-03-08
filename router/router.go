@@ -6,11 +6,16 @@ import (
 	log "github.com/golang/glog"
 	"github.com/micro/cli"
 	"github.com/micro/go-micro"
+	"github.com/micro/go-micro/cmd"
 
 	"github.com/micro/router-srv/db"
 	"github.com/micro/router-srv/db/mysql"
 	"github.com/micro/router-srv/handler"
 	"github.com/micro/router-srv/router"
+
+	gweb "github.com/micro/go-web"
+	"github.com/micro/platform/internal/helper"
+	whandler "github.com/micro/router-web/handler"
 
 	label "github.com/micro/router-srv/proto/label"
 	proto "github.com/micro/router-srv/proto/router"
@@ -56,12 +61,44 @@ func srv(ctx *cli.Context) {
 	}
 }
 
+func web(ctx *cli.Context) {
+	opts := []gweb.Option{
+		gweb.Name("go.micro.web.router"),
+		gweb.Handler(whandler.Router()),
+	}
+
+	opts = append(opts, helper.WebOpts(ctx)...)
+
+	templateDir := "router/templates"
+	if dir := ctx.GlobalString("html_dir"); len(dir) > 0 {
+		templateDir = dir
+	}
+
+	whandler.Init(
+		templateDir,
+		label.NewLabelClient("go.micro.srv.router", *cmd.DefaultOptions().Client),
+		rule.NewRuleClient("go.micro.srv.router", *cmd.DefaultOptions().Client),
+		proto.NewRouterClient("go.micro.srv.router", *cmd.DefaultOptions().Client),
+	)
+
+	service := gweb.NewService(opts...)
+
+	if err := service.Run(); err != nil {
+		log.Fatal(err)
+	}
+}
+
 func routerCommands() []cli.Command {
 	return []cli.Command{
 		{
 			Name:   "srv",
 			Usage:  "Run the router server",
 			Action: srv,
+		},
+		{
+			Name:   "web",
+			Usage:  "Run the router web app",
+			Action: web,
 		},
 	}
 }
