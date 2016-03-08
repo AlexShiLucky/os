@@ -25,10 +25,11 @@ Repo		|	Description
 
 Repo		|	Description
 ------------	|	-------------
+[config-web](https://github.com/micro/config-web)	|	Dynamic configuration dashboard
 [discovery-web](https://github.com/micro/discovery-web)	|	Service discovery dashboard
+[event-web](https://github.com/micro/event-web)	|	Event summarisation dashboard
 [monitor-web](https://github.com/micro/monitor-web)	|	Monitoring dashboard
 [trace-web](https://github.com/micro/trace-web)	|	Distributed tracing dashboard
-[event-web](https://github.com/micro/event-web)	|	Event summarisation dashboard
 
 ## Additional Services
 
