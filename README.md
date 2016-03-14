@@ -1,4 +1,4 @@
-# Micro Platform [![GoDoc](https://godoc.org/github.com/micro/platform?status.svg)](https://godoc.org/github.com/micro/platform) [![Travis CI](https://travis-ci.org/micro/platform.svg?branch=master)](https://travis-ci.org/micro/platform)
+# Micro Platform [![GoDoc](https://godoc.org/github.com/micro/platform?status.svg)](https://godoc.org/github.com/micro/platform) [![Travis CI](https://travis-ci.org/micro/platform.svg?branch=master)](https://travis-ci.org/micro/platform) [![Go Report Card](https://goreportcard.com/badge/micro/platform)](https://goreportcard.com/report/github.com/micro/platform)
 
 The micro platform is a complete runtime for building and managing microservices at scale. Where [micro](https://github.com/micro/micro) provides 
 the fundamental building blocks and core essentials, the platform goes a step further and addresses every requirement for large scale distributed 
