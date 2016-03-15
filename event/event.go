@@ -1,9 +1,9 @@
 package event
 
 import (
+	"log"
 	"time"
 
-	log "github.com/golang/glog"
 	"github.com/micro/cli"
 	"github.com/micro/event-srv/db"
 	"github.com/micro/event-srv/db/mysql"

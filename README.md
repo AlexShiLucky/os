@@ -200,14 +200,10 @@ GLOBAL OPTIONS:
    --selector 									Selector used to pick nodes for querying. random, roundrobin, blacklist [$MICRO_SELECTOR]
    --transport 									Transport mechanism used; http, rabbitmq, nats [$MICRO_TRANSPORT]
    --transport_address 								Comma-separated list of transport addresses [$MICRO_TRANSPORT_ADDRESS]
-   --logtostderr								log to standard error instead of files
-   --alsologtostderr								log to standard error as well as files
-   --log_dir 									log files will be written to this directory instead of the default temporary directory
-   --stderrthreshold 								logs at or above this threshold go to stderr
-   -v 										log level for V logs
-   --vmodule 									comma-separated list of pattern=N settings for file-filtered logging
-   --log_backtrace_at 								when logging hits line file:N, emit a stack trace
    --database_url 								The database URL e.g root@tcp(127.0.0.1:3306)/database [$MICRO_DATABASE_URL]
+   --register_ttl "0"								Register TTL in seconds [$MICRO_REGISTER_TTL]
+   --register_interval "0"							Register interval in seconds [$MICRO_REGISTER_INTERVAL]
+   --html_dir 									The html directory for a web app [$MICRO_HTML_DIR]
    --help, -h									show help
 ```
 
@@ -216,10 +212,10 @@ GLOBAL OPTIONS:
 The platform consists of a number of services. They can be run in the following way. For example config srv.
 
 ```shell
-$ platform --registry_address=192.168.99.100 --database_url="root@tcp(127.0.0.1:3306)/config" --logtostderr config srv
-I0214 01:07:25.121366   52660 rpc_server.go:314] Listening on [::]:61224
-I0214 01:07:25.126317   52660 http_broker.go:220] Broker Listening on [::]:61225
-I0214 01:07:25.126477   52660 rpc_server.go:222] Registering node: go.micro.srv.config-4ef6844a-d2b7-11e5-9d6e-68a86d0d36b6
+$ platform --registry_address=192.168.99.100 --database_url="root@tcp(127.0.0.1:3306)/config" config srv
+2016/03/15 21:04:26 Listening on [::]:62017
+2016/03/15 21:04:26 Broker Listening on [::]:62018
+2016/03/15 21:04:26 Registering node: go.micro.srv.config-803dcb2a-eaf1-11e5-806f-68a86d0d36b6
 ```
 
 ### Running a platform web service

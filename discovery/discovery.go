@@ -1,9 +1,9 @@
 package discovery
 
 import (
+	"log"
 	"time"
 
-	log "github.com/golang/glog"
 	"github.com/micro/cli"
 	"github.com/micro/discovery-srv/discovery"
 	"github.com/micro/discovery-srv/handler"

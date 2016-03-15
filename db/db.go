@@ -1,9 +1,9 @@
 package db
 
 import (
+	"log"
 	"time"
 
-	log "github.com/golang/glog"
 	"github.com/micro/cli"
 	"github.com/micro/go-micro"
 

@@ -1,9 +1,9 @@
 package auth
 
 import (
+	"log"
 	"time"
 
-	log "github.com/golang/glog"
 	"github.com/micro/auth-srv/db"
 	"github.com/micro/auth-srv/db/mysql"
 	"github.com/micro/auth-srv/handler"
