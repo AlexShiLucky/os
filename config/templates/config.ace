@@ -1,0 +1,38 @@
+= content title
+  | Config
+= content main
+  h1 ID: {{.Id}}
+  hr
+
+
+  div.row
+    div.col-md-12
+      table.table.table-bordered.table-hover
+        tr
+          th ID
+          td {{.Config.Id}}
+        {{if .Path}}
+        tr
+          th Path
+          td {{.Path}}
+        {{end}}
+        tr
+          th Checksum
+          td {{.Config.ChangeSet.Checksum}}
+        tr
+          th Last Update
+          td {{Timestamp .Config.ChangeSet.Timestamp}}
+        tr
+          th Last Author
+          td {{.Config.Author}}
+        tr
+          th Last Comment
+          td {{.Config.Comment}}
+        tr
+          th Data
+          td
+            pre {{JSON .Config.ChangeSet.Data}}
+      a href={{URL "edit"}}/{{.Config.Id}}
+        button.btn.btn-default Edit
+
+

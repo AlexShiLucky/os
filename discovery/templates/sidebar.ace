@@ -1,0 +1,9 @@
+ul.nav.nav-sidebar
+  li.h4
+    a href={{URL "/"}} Home
+  li
+    a href={{URL "services"}} Services
+  li
+    a href={{URL "endpoints"}} Endpoints
+  li
+    a href={{URL "heartbeats"}} Heartbeats

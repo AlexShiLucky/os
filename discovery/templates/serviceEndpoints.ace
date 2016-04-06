@@ -1,0 +1,7 @@
+= content title
+  | Service Endpoints
+= content main
+  h1 Service: {{.Name}}
+  hr
+
+  = include _endpoints .

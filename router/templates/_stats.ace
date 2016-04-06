@@ -1,0 +1,44 @@
+{{if .}}
+div.row
+  div.col-md-12
+    table.table.table-bordered.table-hover
+      thead
+        tr
+          td Service
+          td Client
+          td Timestamp
+          td Duration
+          td Success
+          td Errors
+          td Dropped
+      tbody
+      {{range $i, $val := .}}
+        tr data-toggle="collapse" data-target="#change-{{$i}}"
+          td {{.Service.Name}}
+          td {{.Client.Name}}
+          td {{Timestamp .Timestamp}}
+          td {{.Duration}}s
+          td {{.Selected.Success.Count}}
+          td {{.Selected.Errors.Count}}
+          td {{.Selected.Dropped.Count}}
+          tr id="change-{{$i}}" class=collapse
+            td colspan=7
+              h4 Endpoint Stats
+              table.table.table-bordered.table-hover
+                {{range .EndpointStats}}
+                tr
+                  td Name
+                  td Success
+                  td Errors
+                  td Dropped
+                tr
+                  td {{.Name}}
+                  td {{.Success.Count}}
+                  td {{.Errors.Count}}
+                  td {{.Dropped.Count}}
+                {{end}}
+      {{end}}
+{{else}}
+h4 No stats found
+{{end}}
+

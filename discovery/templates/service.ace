@@ -1,0 +1,36 @@
+= content title
+  | {{.Name}}
+= content main
+  h1 Service: {{.Name}}
+  hr
+
+  {{range .Services}}
+  div.row
+    div.col-md-12
+      h3 Version: {{.Version}}
+
+  {{if .Nodes}}
+  h3 Nodes
+  {{end}}
+
+  = include _nodes .
+
+  {{if .Endpoints}}
+  h3 Endpoints
+  {{end}}
+
+  {{range .Endpoints}}
+  div.row
+    div.col-md-8
+      ul.list-group
+        li.list-group-item.h4 {{.Name}}
+          span.pull-right {{if eq "true" (index .Metadata "subscriber")}}subscription{{end}}
+        li.list-group-item
+          h5 Request
+          pre {{Endpoint .Request}}
+        li.list-group-item
+          h5 Response
+          pre {{Endpoint .Response}}
+  {{end}}
+
+  {{end}}

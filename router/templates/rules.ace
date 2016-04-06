@@ -1,0 +1,40 @@
+= content title
+  | Rules
+= content main
+
+  h1 Rules
+  hr
+
+  div.row
+    div.col-md-12
+      form.form-inline method=POST action={{URL "search/rules"}}
+        div.form-group
+          label Search
+          label &nbsp; Service &nbsp;
+          input.form-control type=text id=service name=service placeholder="Service (optional)" value={{.Service}}
+        div.form-group
+          label &nbsp; Version &nbsp;
+          input.form-control type=text id=version name=version placeholder="Version (optional)" value={{.Version}}
+        div.form-group
+          | &nbsp;
+          button.btn.btn-default type=submit Search
+      hr
+
+  a href={{URL "create/rule"}}
+    button.btn.btn-default Create
+  p
+
+  = include _rules .Rules
+
+  div.row
+    div.col-md-12
+      nav
+        ul class="pager"
+          {{if .Less}}
+          li class="previous"
+            a href="?p={{.Less}}" <span aria-hidden="true">&larr;</span> Older
+          {{end}}
+          {{if .More}}
+          li class="next"
+            a href="?p={{.More}}" Newer <span aria-hidden="true">&rarr;</span>
+          {{end}}

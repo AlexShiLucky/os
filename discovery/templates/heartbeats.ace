@@ -1,0 +1,7 @@
+= content title
+  | Heartbeats
+= content main
+  h1 Heartbeats
+  hr
+
+  = include _heartbeats .

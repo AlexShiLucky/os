@@ -1,0 +1,7 @@
+= content title
+  | Node Heartbeats
+= content main
+  h1 Node {{.Name}}
+  hr
+
+  = include _heartbeats .

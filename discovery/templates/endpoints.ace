@@ -1,0 +1,7 @@
+= content title
+  | Endpoints
+= content main
+  h1 Endpoints
+  hr
+
+  = include _endpoints .

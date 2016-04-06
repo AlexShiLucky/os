@@ -1,0 +1,9 @@
+{{range .Services}}
+  div.col-xs-6.col-sm-4.col-md-3
+    div.thumbnail
+      a href={{URL "services"}}/{{.Name}}
+        div style="height: 100px; width: 100%;" class={{Colour .Name}}
+      div.caption
+        a href={{URL "services"}}/{{.Name}} {{.Name}}
+{{end}}
+

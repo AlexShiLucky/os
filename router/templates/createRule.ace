@@ -1,0 +1,29 @@
+= content title
+  | Create Rule
+= content main
+  h1 Create Rule
+
+  div.row
+    div.col-md-6
+      form method=POST
+        div.form-group
+          label Service
+          input.form-control type=text id=service name=service placeholder="Service"
+        div.form-group
+          label Version
+          input.form-control type=text id=version name=version placeholder="Version (optional)"
+        div.form-group
+          label Weight
+          input.form-control type=text id=weight name=weight placeholder="Weight"
+        div.form-group
+          label Priority
+          input.form-control type=text id=priority name=priority placeholder="Priority"
+        div.form-group
+          label Key
+          input.form-control type=text id=key name=key placeholder="Key"
+        div.form-group
+          label Value
+          input.form-control type=text id=value name=value placeholder="Value"
+        div.form-group
+          button.btn.btn-default type=submit Create
+

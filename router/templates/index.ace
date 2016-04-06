@@ -1,0 +1,16 @@
+= content title
+  | Index
+= content main
+  h1 Rules
+  hr
+
+  = include _rules .Rules
+
+  a href={{URL "rules"}} more
+
+  h1 Labels
+  hr
+
+  = include _labels .Labels
+
+  a href={{URL "labels"}} more

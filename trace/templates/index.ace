@@ -1,0 +1,7 @@
+= content title
+  | Index
+= content main
+  h1 Latest Traces
+  hr
+
+  = include _latest .Latest

@@ -1,0 +1,18 @@
+{{range .Nodes}}
+div.row
+  div.col-md-8
+    table.table.table-bordered
+      caption.h4 {{.Id}}
+      tbody
+        tr
+          th Address
+          td {{.Address}}
+        tr
+          th Port
+          td {{.Port}}
+        tr
+          {{if .Metadata}}
+          th Metadata
+          td {{.Metadata}}
+          {{end}}
+{{end}}
