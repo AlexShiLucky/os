@@ -29,6 +29,7 @@ Repo		|	Description
 [discovery-web](https://github.com/micro/discovery-web)	|	Service discovery dashboard
 [event-web](https://github.com/micro/event-web)	|	Event summarisation dashboard
 [monitor-web](https://github.com/micro/monitor-web)	|	Monitoring dashboard
+[router-web](https://github.com/micro/router-web)	|	GSLB Routing dashboard
 [trace-web](https://github.com/micro/trace-web)	|	Distributed tracing dashboard
 
 ## Additional Services
