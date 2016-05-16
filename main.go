@@ -8,7 +8,7 @@ import (
 	"github.com/micro/platform/db"
 	"github.com/micro/platform/discovery"
 	"github.com/micro/platform/event"
-	//	"github.com/micro/platform/kv"
+	"github.com/micro/platform/kv"
 	//	"github.com/micro/platform/log"
 	//	"github.com/micro/platform/metrics"
 	"github.com/micro/platform/monitor"
@@ -50,7 +50,7 @@ func main() {
 	app.Commands = append(app.Commands, discovery.Commands()...)
 	app.Commands = append(app.Commands, db.Commands()...)
 	app.Commands = append(app.Commands, event.Commands()...)
-	//	app.Commands = append(app.Commands, kv.Commands()...)
+	app.Commands = append(app.Commands, kv.Commands()...)
 	//	app.Commands = append(app.Commands, log.Commands()...)
 	//	app.Commands = append(app.Commands, metrics.Commands()...)
 	app.Commands = append(app.Commands, monitor.Commands()...)
