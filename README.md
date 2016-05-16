@@ -17,6 +17,7 @@ Repo		|	Description
 [db-srv](https://github.com/micro/db-srv)	|	Database proxy
 [discovery-srv](https://github.com/micro/discovery-srv)	|	Discovery read cache
 [event-srv](https://github.com/micro/event-srv)	|	Event aggregation
+[kv-srv](https://github.com/micro/kv-srv)	|	Key-Value service
 [monitor-srv](https://github.com/micro/monitor-srv)	|	Monitoring for Status, Stats and Healthchecks
 [router-srv](https://github.com/micro/router-srv)	|	Global service load balancing
 [trace-srv](https://github.com/micro/trace-srv)	|	Distributed tracing
@@ -40,7 +41,6 @@ strong systems in the OSS world for them.
 
 Feature		|	Description
 -----		|	--------
-**KV**		|	Distributed Key Value
 **Sync**	|	Distributed Synchronization
 **Log**		|	Centralised logging
 **Metrics**	|	Metrics aggregation and graphing
