@@ -30,7 +30,6 @@ func srv(ctx *cli.Context) {
 	opts := []kv.Option{
 		kv.Client(service.Client()),
 		kv.Server(service.Server()),
-		kv.Internal(false),
 	}
 
 	if len(ctx.String("namespace")) > 0 {
