@@ -8,6 +8,10 @@ This repository provides a unified entry point for running the individual platfo
 
 Use the [**go-platform**](https://github.com/micro/go-platform) client to leverage the platform.
 
+<p align="center">
+  <img src="https://github.com/micro/micro/blob/master/doc/platform.png" />
+</p>
+
 ## Platform Services
 
 Repo		|	Description
