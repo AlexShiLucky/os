@@ -12,7 +12,7 @@ import (
 
 	whandler "github.com/micro/discovery-web/handler"
 	gweb "github.com/micro/go-web"
-	"github.com/micro/platform/internal/helper"
+	"github.com/micro/os/internal/helper"
 
 	proto "github.com/micro/discovery-srv/proto/discovery"
 	proto2 "github.com/micro/discovery-srv/proto/registry"

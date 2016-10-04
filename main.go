@@ -3,18 +3,18 @@ package main
 import (
 	ccli "github.com/micro/cli"
 	"github.com/micro/go-micro/cmd"
-	"github.com/micro/platform/auth"
-	"github.com/micro/platform/config"
-	"github.com/micro/platform/db"
-	"github.com/micro/platform/discovery"
-	"github.com/micro/platform/event"
-	"github.com/micro/platform/kv"
-	//	"github.com/micro/platform/log"
-	//	"github.com/micro/platform/metrics"
-	"github.com/micro/platform/monitor"
-	"github.com/micro/platform/router"
-	//	"github.com/micro/platform/sync"
-	"github.com/micro/platform/trace"
+	"github.com/micro/os/auth"
+	"github.com/micro/os/config"
+	"github.com/micro/os/db"
+	"github.com/micro/os/discovery"
+	"github.com/micro/os/event"
+	"github.com/micro/os/kv"
+	//	"github.com/micro/os/log"
+	//	"github.com/micro/os/metrics"
+	"github.com/micro/os/monitor"
+	"github.com/micro/os/router"
+	//	"github.com/micro/os/sync"
+	"github.com/micro/os/trace"
 )
 
 func setup(app *ccli.App) {
@@ -62,8 +62,8 @@ func main() {
 	setup(app)
 
 	cmd.Init(
-		cmd.Name("platform"),
-		cmd.Description("A microservices platform"),
+		cmd.Name("os"),
+		cmd.Description("A microservices operating system"),
 		cmd.Version("latest"),
 	)
 }

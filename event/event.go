@@ -15,7 +15,7 @@ import (
 	"github.com/micro/go-micro/cmd"
 	"github.com/micro/go-micro/server"
 	gweb "github.com/micro/go-web"
-	"github.com/micro/platform/internal/helper"
+	"github.com/micro/os/internal/helper"
 )
 
 func srv(ctx *cli.Context) {

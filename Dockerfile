@@ -8,5 +8,5 @@ ADD event/templates /event/templates
 ADD router/templates /router/templates
 ADD trace/templates /trace/templates
 # binary
-ADD platform /platform
-ENTRYPOINT [ "/platform" ]
+ADD os /os
+ENTRYPOINT [ "/os" ]

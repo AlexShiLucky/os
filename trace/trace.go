@@ -17,7 +17,7 @@ import (
 	"github.com/micro/trace-srv/db/mysql"
 
 	gweb "github.com/micro/go-web"
-	"github.com/micro/platform/internal/helper"
+	"github.com/micro/os/internal/helper"
 	whandler "github.com/micro/trace-web/handler"
 
 	// proto

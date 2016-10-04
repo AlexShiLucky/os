@@ -13,7 +13,7 @@ import (
 	gweb "github.com/micro/go-web"
 	proto "github.com/micro/monitor-srv/proto/monitor"
 	whandler "github.com/micro/monitor-web/handler"
-	"github.com/micro/platform/internal/helper"
+	"github.com/micro/os/internal/helper"
 )
 
 func srv(ctx *cli.Context) {

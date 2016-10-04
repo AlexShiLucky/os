@@ -13,7 +13,7 @@ import (
 
 	whandler "github.com/micro/config-web/handler"
 	gweb "github.com/micro/go-web"
-	"github.com/micro/platform/internal/helper"
+	"github.com/micro/os/internal/helper"
 
 	// db
 	"github.com/micro/config-srv/db"

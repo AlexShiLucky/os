@@ -14,7 +14,7 @@ import (
 	"github.com/micro/router-srv/router"
 
 	gweb "github.com/micro/go-web"
-	"github.com/micro/platform/internal/helper"
+	"github.com/micro/os/internal/helper"
 	whandler "github.com/micro/router-web/handler"
 
 	label "github.com/micro/router-srv/proto/label"
