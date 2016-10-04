@@ -4,7 +4,7 @@ Micro OS is a microservice operating system. Where the [micro](https://github.co
 the fundamental building blocks, Micro OS goes a step further and addresses every requirement 
 for large scale distributed systems. Monitoring, distributed tracing, authentication, dynamic configuration, label based routing, etc. 
 
-Use [**go-os**](https://github.com/micro/go-os) client library to leverage Micro OS in your application.
+Use the [**go-os**](https://github.com/micro/go-os) client library to leverage Micro OS in your application.
 
 ## Services
 
