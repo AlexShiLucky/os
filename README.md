@@ -1,8 +1,8 @@
 # Micro OS [![License](https://img.shields.io/:license-apache-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![GoDoc](https://godoc.org/github.com/micro/os?status.svg)](https://godoc.org/github.com/micro/os) [![Travis CI](https://travis-ci.org/micro/os.svg?branch=master)](https://travis-ci.org/micro/os) [![Go Report Card](https://goreportcard.com/badge/micro/os)](https://goreportcard.com/report/github.com/micro/os)
 
 Micro OS is a microservice operating system. Where the [micro](https://github.com/micro/micro) toolkit provides 
-the fundamental building blocks and core essentials microservices, Micro OS goes a step further and addresses every requirement 
-for large scale distributed system. Monitoring, distributed tracing, authentication, dynamic configuration, label based routing, etc. 
+the fundamental building blocks, Micro OS goes a step further and addresses every requirement 
+for large scale distributed systems. Monitoring, distributed tracing, authentication, dynamic configuration, label based routing, etc. 
 
 Use [**go-os**](https://github.com/micro/go-os) client library to leverage Micro OS in your application.
 
