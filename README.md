@@ -6,6 +6,8 @@ for large scale distributed systems. Monitoring, distributed tracing, authentica
 
 Use the [**go-os**](https://github.com/micro/go-os) client library to leverage Micro OS in your application.
 
+Note: Micro OS is not yet in a working state. Join the slack to discuss.
+
 ## Services
 
 Repo		|	Description
