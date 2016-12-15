@@ -115,4 +115,3 @@ Trace is a client side interface for distributed tracing e.g dapper, zipkin, app
 request may fan out to 20-30 services. Failure may be non deterministic and difficult to track. Distributed tracing is a 
 way of tracking the lifetime of a request. The interface utilises client and server wrappers to simplify using tracing.
 
-```
