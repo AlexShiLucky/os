@@ -1,81 +1,34 @@
 # Micro OS [![License](https://img.shields.io/:license-apache-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![GoDoc](https://godoc.org/github.com/micro/os?status.svg)](https://godoc.org/github.com/micro/os) [![Travis CI](https://travis-ci.org/micro/os.svg?branch=master)](https://travis-ci.org/micro/os) [![Go Report Card](https://goreportcard.com/badge/micro/os)](https://goreportcard.com/report/github.com/micro/os)
 
-Micro OS is a microservice operating system. Where the [micro](https://github.com/micro/micro) toolkit provides 
-the fundamental building blocks, Micro OS goes a step further and addresses every requirement 
-for large scale distributed systems. Monitoring, distributed tracing, authentication, dynamic configuration, label based routing, etc. 
+Micro OS is a microservice operating system. It addresses every requirement for building large scale distributed systems.
 
-Use the [**go-os**](https://github.com/micro/go-os) client library to leverage Micro OS in your application.
+Use the [**micro/go-os**](https://github.com/micro/go-os) client library to simplify use of Micro OS.
 
-Note: Micro OS is not yet in a working state. Join the slack to discuss.
+Note: Micro OS is still a work in progress
 
 ## Services
 
 Repo		|	Description
 ------------	|	-------------
-[auth-srv](https://github.com/micro/auth-srv)	|	Authentication and authorization (Oauth2)
-[config-srv](https://github.com/micro/config-srv)	|	Dynamic configuration
-[db-srv](https://github.com/micro/db-srv)	|	Database proxy
-[discovery-srv](https://github.com/micro/discovery-srv)	|	Discovery read cache
-[event-srv](https://github.com/micro/event-srv)	|	Event aggregation
-[kv-srv](https://github.com/micro/kv-srv)	|	Key-Value service
-[monitor-srv](https://github.com/micro/monitor-srv)	|	Monitoring for Status, Stats and Healthchecks
-[router-srv](https://github.com/micro/router-srv)	|	Global service load balancing
-[trace-srv](https://github.com/micro/trace-srv)	|	Distributed tracing
-
-## Dashboards
-
-Repo		|	Description
-------------	|	-------------
-[config-web](https://github.com/micro/config-web)	|	Dynamic configuration dashboard
-[discovery-web](https://github.com/micro/discovery-web)	|	Service discovery dashboard
-[event-web](https://github.com/micro/event-web)	|	Event summarisation dashboard
-[monitor-web](https://github.com/micro/monitor-web)	|	Monitoring dashboard
-[router-web](https://github.com/micro/router-web)	|	GSLB Routing dashboard
-[trace-web](https://github.com/micro/trace-web)	|	Distributed tracing dashboard
-
-## Additional Services
-
-There are a few other services that we support as part of the OS but haven't written backend services for. 
-These are still vital for a microservice operating system and we may build services for them later but there are very 
-strong systems in the OSS world for them.
-
-Feature		|	Description
------		|	--------
-**Sync**	|	Distributed Synchronization
-**Log**		|	Centralised logging
-**Metrics**	|	Metrics aggregation and graphing
-
-
-## Go-OS Features
-
-Package     |   Built-in Plugin	|	Description
--------     |   --------	|	---------
-[auth](https://godoc.org/github.com/micro/go-os/auth)	|	auth-srv	|   authentication and authorisation for users and services	
-[config](https://godoc.org/github.com/micro/go-os/config)	|	config-srv	|   dynamic configuration which is namespaced and versioned
-[db](https://godoc.org/github.com/micro/go-os/db)		|	db-srv		| distributed database abstraction
-[discovery](https://godoc.org/github.com/micro/go-os/discovery)	|	discovery-srv	|   extends the go-micro registry to add heartbeating, etc
-[event](https://godoc.org/github.com/micro/go-os/event)	|	event-srv	|	event publication, subscription and aggregation 
-[kv](https://godoc.org/github.com/micro/go-os/kv)		|	distributed in-memory	|   simply key value layered on memcached, etcd, consul 
-[log](https://godoc.org/github.com/micro/go-os/log)	|	file	|	structured logging to stdout, logstash, fluentd, pubsub
-[monitor](https://godoc.org/github.com/micro/go-os/monitor)	|	monitor-srv	|   add custom healthchecks measured with distributed systems in mind
-[metrics](https://godoc.org/github.com/micro/go-os/metrics)	|	telegraf	|   instrumentation and collation of counters
-[router](https://godoc.org/github.com/micro/go-os/router)	|	router-srv	|	global circuit breaking, load balancing, A/B testing
-[sync](https://godoc.org/github.com/micro/go-os/sync)	|	consul		|	distributed locking, leadership election, etc
-[trace](https://godoc.org/github.com/micro/go-os/trace)	|	trace-srv	|	distributed tracing of request/response
+[auth](https://github.com/micro/auth-srv)	|	Authentication and authorization (Oauth2)
+[config](https://github.com/micro/config-srv)	|	Dynamic configuration
+[db](https://github.com/micro/db-srv)	|	Database proxy
+[discovery](https://github.com/micro/discovery-srv)	|	Discovery read cache
+[event](https://github.com/micro/event-srv)	|	Event aggregation
+[kv](https://github.com/micro/kv-srv)	|	Key-Value service
+[monitor](https://github.com/micro/monitor-srv)	|	Monitoring for Status, Stats and Healthchecks
+[router](https://github.com/micro/router-srv)	|	Global service load balancing
+[trace](https://github.com/micro/trace-srv)	|	Distributed tracing
 
 ## What's it even good for?
 
-Micro OS is useful for where you want to build reliable globally distributed systems at scale. In a world of infinite compute and billions of 
-devices it's still difficult to build products that are highly available and that cope with demand. Micro OS attempts to solve these problems by 
-providing an environment for distributed applications that is simple to use.
+Micro OS is useful where you want to build reliable globally distributed systems at scale. In a world of infinite compute and billions of 
+devices it's still difficult to build products that are highly available and that cope with demand. Micro OS attempts to solve these problems by providing an environment for distributed applications that is simple to use.
 
 ## How does it work?
 
-**Go-OS** is a client side interface which lets you leverage the features of Micro OS. Each package connects to 
-a backend **OS** service which handles that feature. Everything is an interface and pluggable which means you can choose how to 
-architect your operating system. Micro OS provides default implementations for everything you may need.
-
-Each package can be used independently or integrated using go-micro client and handler wrappers.
+**Go OS** is a client library which lets you leverage the features of Micro OS. Each package connects to a backend Micro OS service which 
+handles that feature. Packages can be used independently or integrated using go-micro client and handler wrappers.
 
 ### Auth 
 
@@ -162,68 +115,4 @@ Trace is a client side interface for distributed tracing e.g dapper, zipkin, app
 request may fan out to 20-30 services. Failure may be non deterministic and difficult to track. Distributed tracing is a 
 way of tracking the lifetime of a request. The interface utilises client and server wrappers to simplify using tracing.
 
-## Usage
-
-```shell
-$ os
-NAME:
-   os - A microservices operating system
-
-USAGE:
-   os [global options] command [command options] [arguments...]
-   
-VERSION:
-   latest
-   
-COMMANDS:
-   auth		Auth commands
-   config	Config commands
-   discovery	Discovery commands
-   db		DB commands
-   event	Event commands
-   monitor	Monitor commands
-   router	Router commands
-   trace	Trace commands
-   help, h	Shows a list of commands or help for one command
-   
-GLOBAL OPTIONS:
-   --server_name 								Name of the server. go.micro.srv.example [$MICRO_SERVER_NAME]
-   --server_version 								Version of the server. 1.1.0 [$MICRO_SERVER_VERSION]
-   --server_id 									Id of the server. Auto-generated if not specified [$MICRO_SERVER_ID]
-   --server_address 								Bind address for the server. 127.0.0.1:8080 [$MICRO_SERVER_ADDRESS]
-   --server_advertise 								Used instead of the server_address when registering with discovery. 127.0.0.1:8080 [$MICRO_SERVER_ADVERTISE]
-   --server_metadata [--server_metadata option --server_metadata option]	A list of key-value pairs defining metadata. version=1.0.0 [$MICRO_SERVER_METADATA]
-   --broker 									Broker for pub/sub. http, nats, rabbitmq [$MICRO_BROKER]
-   --broker_address 								Comma-separated list of broker addresses [$MICRO_BROKER_ADDRESS]
-   --registry 									Registry for discovery. memory, consul, etcd, kubernetes [$MICRO_REGISTRY]
-   --registry_address 								Comma-separated list of registry addresses [$MICRO_REGISTRY_ADDRESS]
-   --selector 									Selector used to pick nodes for querying. random, roundrobin, blacklist [$MICRO_SELECTOR]
-   --transport 									Transport mechanism used; http, rabbitmq, nats [$MICRO_TRANSPORT]
-   --transport_address 								Comma-separated list of transport addresses [$MICRO_TRANSPORT_ADDRESS]
-   --database_url 								The database URL e.g root@tcp(127.0.0.1:3306)/database [$MICRO_DATABASE_URL]
-   --register_ttl "0"								Register TTL in seconds [$MICRO_REGISTER_TTL]
-   --register_interval "0"							Register interval in seconds [$MICRO_REGISTER_INTERVAL]
-   --html_dir 									The html directory for a web app [$MICRO_HTML_DIR]
-   --help, -h									show help
 ```
-
-### Running a os service
-
-Micro OS consists of a number of services. They can be run in the following way. For example config srv.
-
-```shell
-$ os --registry_address=192.168.99.100 --database_url="root@tcp(127.0.0.1:3306)/config" config srv
-2016/03/15 21:04:26 Listening on [::]:62017
-2016/03/15 21:04:26 Broker Listening on [::]:62018
-2016/03/15 21:04:26 Registering node: go.micro.srv.config-803dcb2a-eaf1-11e5-806f-68a86d0d36b6
-```
-
-### Running a os web service
-
-The os web services are a visual frontend for the service backends. They can be run in the following way.
-
-```shell
-$ os --registry_address=192.168.99.100 --html_dir=/path/to/trace-web/templates trace web
-Listening on [::]:60576
-```
-
