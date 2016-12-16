@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	ccli "github.com/micro/cli"
 	"github.com/micro/go-micro/cmd"
 	"github.com/micro/os/auth"
@@ -16,6 +18,10 @@ import (
 	//	"github.com/micro/os/sync"
 	"github.com/micro/os/trace"
 )
+
+func init() {
+	os.Setenv("MICRO_REGISTRY", "os")
+}
 
 func setup(app *ccli.App) {
 	// common flags

@@ -27,25 +27,21 @@ func srv(ctx *cli.Context) {
 		micro.RegisterInterval(
 			time.Duration(ctx.GlobalInt("register_interval"))*time.Second,
 		),
-		micro.BeforeStart(func() error {
-			discovery.Run()
-			return nil
-		}),
+		micro.BeforeStart(discovery.Start),
+		micro.AfterStop(discovery.Stop),
 	)
-
-	discovery.Init(service)
 
 	service.Server().Subscribe(
 		service.Server().NewSubscriber(
 			discovery.HeartbeatTopic,
-			discovery.DefaultDiscovery.ProcessHeartbeat,
+			discovery.Default.ProcessHeartbeat,
 		),
 	)
 
 	service.Server().Subscribe(
 		service.Server().NewSubscriber(
 			discovery.WatchTopic,
-			discovery.DefaultDiscovery.ProcessResult,
+			discovery.Default.ProcessResult,
 		),
 	)
 
