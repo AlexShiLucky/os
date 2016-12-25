@@ -2,11 +2,14 @@
 
 Micro OS is a microservice operating system
 
+Micro OS is useful where you want to build reliable globally distributed systems at scale. In a world of infinite compute and billions of 
+devices it's still difficult to build products that are highly available and that cope with demand. Micro OS attempts to solve these problems by providing an environment for distributed applications that is simple to use.
+
 Use the [**micro/go-os**](https://github.com/micro/go-os) client library to simplify use of Micro OS.
 
 Note: This is still a work in progress
 
-## Services
+## Features
 
 Repo		|	Description
 ------------	|	-------------
@@ -16,14 +19,13 @@ Repo		|	Description
 [discovery](https://github.com/micro/discovery-srv)	|	Discovery read cache
 [event](https://github.com/micro/event-srv)	|	Event aggregation
 [kv](https://github.com/micro/kv-srv)	|	Key-Value service
+[log]()	|	TODO: structured log aggregation
+[metrics]()	|	TODO: analytics aggregation
 [monitor](https://github.com/micro/monitor-srv)	|	Monitoring for Status, Stats and Healthchecks
 [router](https://github.com/micro/router-srv)	|	Global service load balancing
+[sync]()	|	TODO: distributed consensus
 [trace](https://github.com/micro/trace-srv)	|	Distributed tracing
 
-## What's it even good for?
-
-Micro OS is useful where you want to build reliable globally distributed systems at scale. In a world of infinite compute and billions of 
-devices it's still difficult to build products that are highly available and that cope with demand. Micro OS attempts to solve these problems by providing an environment for distributed applications that is simple to use.
 
 ## How does it work?
 
