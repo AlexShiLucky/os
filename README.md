@@ -1,10 +1,10 @@
 # Micro OS [![License](https://img.shields.io/:license-apache-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![GoDoc](https://godoc.org/github.com/micro/os?status.svg)](https://godoc.org/github.com/micro/os) [![Travis CI](https://travis-ci.org/micro/os.svg?branch=master)](https://travis-ci.org/micro/os) [![Go Report Card](https://goreportcard.com/badge/micro/os)](https://goreportcard.com/report/github.com/micro/os)
 
-Micro OS is a microservice operating system. It addresses every requirement for building large scale distributed systems.
+Micro OS is a microservice operating system
 
 Use the [**micro/go-os**](https://github.com/micro/go-os) client library to simplify use of Micro OS.
 
-Note: Micro OS is still a work in progress
+Note: This is still a work in progress
 
 ## Services
 
