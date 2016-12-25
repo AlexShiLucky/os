@@ -3,7 +3,7 @@
 Micro OS is a microservice operating system
 
 Micro OS is useful where you want to build reliable globally distributed systems at scale. In a world of infinite compute and billions of 
-devices it's still difficult to build products that are highly available and that cope with demand. Micro OS attempts to solve these problems by providing an environment for distributed applications that is simple to use.
+devices it's still difficult to build products that are highly available and that cope with demand. Micro OS attempts to solve these problems by providing an environment for distributed applications.
 
 Use the [**micro/go-os**](https://github.com/micro/go-os) client library to simplify use of Micro OS.
 
